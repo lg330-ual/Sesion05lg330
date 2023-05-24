@@ -1,0 +1,8 @@
+password,expected
+pass,Password demasiado corto
+contrasenaentre12y40caracteres,************
+contrasenaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Password demasiado largo
+entre8y12,*********
+contrasena,**********
+contrasena1,***********
+contrasena12,************
