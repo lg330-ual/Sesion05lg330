@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import ual.hmis.sesion05.ejercicio2.Ejercicio2;
 
-public class testEjercicio2 {
+public class TestEjercicio2 {
 	
 	@CsvSource({
 		"user,pass,true",
@@ -21,7 +21,7 @@ public class testEjercicio2 {
 	})
 	
 	@ParameterizedTest(name = "{index} => Con usuario ({0}) y password ({1}) sale {2}")
-	void testLogin_parametrized(String username, String password, String result) {
+	public void testLogin_parametrized(String username, String password, String result) {
 		//Arrange
 		Ejercicio2 e2 = new Ejercicio2();
 		//Act

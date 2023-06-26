@@ -2,6 +2,11 @@ package ual.hmis.sesion05.ejercicio4;
 
 public class Ejercicio4 {
 	public static int[][] obtenerDiagonales(int[][] matriz) {
+
+		if (matriz.length == 1) {
+			return new int[][] { { matriz[0][0] }, { matriz[0][0] } };
+		}
+
 		int[][] matrizSalida = new int[2][matriz.length];
 
 		for (int i = 0, j = matriz.length - 1; i < matrizSalida[0].length && j >= 0; i++, j--) {
@@ -11,8 +16,8 @@ public class Ejercicio4 {
 
 		return matrizSalida;
 	}
-	
-	public static double [] sumarColumnas(double [][] matriz) {
+
+	public static double[] sumarColumnas(double[][] matriz) {
 		double[] arraySuma = new double[matriz[0].length];
 		for (int j = 0; j < matriz.length; j++) {
 			for (int i = 0; i < matriz[0].length; i++) {

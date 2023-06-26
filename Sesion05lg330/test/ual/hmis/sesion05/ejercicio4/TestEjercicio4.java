@@ -6,18 +6,19 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import org.junit.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.api.Test;
 
-public class testEjercicio4 {
+public class TestEjercicio4 {
 
 	@Test
 	public void creacionClase() {
 		Ejercicio4 ej4 = new Ejercicio4();
-		assertNotNull(ej4);
+		Assert.assertNotNull(ej4);
 	}
 	
 	@ParameterizedTest
 	@CsvFileSource(resources = "./matrices.csv", numLinesToSkip = 1)
-	void testDiagonales(String csv) {
+	public void testDiagonales(String csv) {
 		// Arrange
 		String[] mString = csv.split(";");
 		int[][] matriz = formatMatrix(mString[0], 1);
@@ -33,7 +34,7 @@ public class testEjercicio4 {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "./matrices.csv", numLinesToSkip = 1)
-	void testSumaColumnas(String csv) {
+	public void testSumaColumnas(String csv) {
 		// Arrange
 		String[] mString = csv.split(";");
 		double[][] matriz = formatMatrixDouble(mString[0]);
@@ -54,6 +55,10 @@ public class testEjercicio4 {
 	}
 
 	public int[][] formatMatrix(String stringCSV, int tipoMatriz) {
+		if (stringCSV.isEmpty() || stringCSV.isBlank()) {
+			return null;
+		}
+		
 		String[] splittedString = stringCSV.split(",");
 
 		int dimension = 0;
@@ -62,7 +67,7 @@ public class testEjercicio4 {
 			dimension = (int) Math.sqrt(splittedString.length);
 			matriz = new int[dimension][dimension];
 		} else if (tipoMatriz == 2) {
-			dimension = splittedString.length / 2;
+			dimension = (splittedString.length == 1) ? 1 : splittedString.length / 2;
 			matriz = new int[2][dimension];
 		}
 
@@ -70,7 +75,9 @@ public class testEjercicio4 {
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[0].length; j++) {
 				matriz[i][j] = Integer.parseInt(splittedString[k]);
-				k++;
+				if (splittedString.length != 1) {
+					k++;
+				}
 			}
 		}
 
