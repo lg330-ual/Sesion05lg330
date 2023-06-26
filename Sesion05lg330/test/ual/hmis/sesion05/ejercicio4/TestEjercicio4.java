@@ -17,7 +17,7 @@ public class TestEjercicio4 {
 	}
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "./matrices.csv", numLinesToSkip = 1)
+	@CsvFileSource(files = "test/ual/hmis/sesion05/ejercicio4/matrices.csv", numLinesToSkip = 1)
 	public void testDiagonales(String csv) {
 		// Arrange
 		String[] mString = csv.split(";");
@@ -33,7 +33,7 @@ public class TestEjercicio4 {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "./matrices.csv", numLinesToSkip = 1)
+	@CsvFileSource(files = "test/ual/hmis/sesion05/ejercicio4/matrices.csv", numLinesToSkip = 1)
 	public void testSumaColumnas(String csv) {
 		// Arrange
 		String[] mString = csv.split(";");
